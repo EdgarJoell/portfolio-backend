@@ -17,10 +17,10 @@ public class ContactService {
         this.contactRepository = contactRepository;
     }
 
-    public String sendContactSheet(Contact contact) {
+    public String saveContactSheet(Contact contact) {
         contactRepository.save(contact);
         Optional<Contact> repoCheck = contactRepository.findById(contact.getId());
-        if(repoCheck.isEmpty()) {
+        if(repoCheck.isPresent()) {
             throw new ContactNotSentException("There has been an error with sending your contact form");
         }
 

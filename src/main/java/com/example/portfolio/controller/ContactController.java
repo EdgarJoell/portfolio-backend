@@ -20,7 +20,7 @@ public class ContactController {
     }
 
     @PostMapping(path = "/{contact}/sent")
-    public String sendContactSheet(@PathVariable Contact contact) {
-        return contactService.sendContactSheet(contact);
+    public String saveContactSheet(@PathVariable Contact contact) {
+        return contactService.saveContactSheet(contact);
     }
 }
