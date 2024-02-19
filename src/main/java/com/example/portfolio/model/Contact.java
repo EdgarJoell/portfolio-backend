@@ -20,19 +20,19 @@ public class Contact {
     private String email;
 
     @Column
-    private String personType;
+    private String role;
 
     @Column
     private String message;
 
     public Contact() {}
 
-    public Contact(long id, String firstName, String lastName, String personType, String email, String message) {
+    public Contact(long id, String firstName, String lastName, String role, String email, String message) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.personType = personType;
+        this.role = role;
         this.message = message;
     }
 
@@ -68,12 +68,12 @@ public class Contact {
         this.email = email;
     }
 
-    public String getPersonType() {
-        return personType;
+    public String getRole() {
+        return role;
     }
 
-    public void setPersonType(String personType) {
-        this.personType = personType;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getMessage() {
@@ -91,7 +91,7 @@ public class Contact {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", personType='" + personType + '\'' +
+                ", role='" + role + '\'' +
                 ", message='" + message + '\'' +
                 '}';
     }

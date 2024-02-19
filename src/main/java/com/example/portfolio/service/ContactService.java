@@ -6,6 +6,7 @@ import com.example.portfolio.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,14 +18,18 @@ public class ContactService {
         this.contactRepository = contactRepository;
     }
 
-    public String saveContactSheet(Contact contact) {
+    public List<Contact> getAllContactForms() {
+        return this.contactRepository.findAll();
+    }
+
+    public Contact saveContactSheet(Contact contact) {
         contactRepository.save(contact);
         Optional<Contact> repoCheck = contactRepository.findById(contact.getId());
-        if(repoCheck.isPresent()) {
+        if(repoCheck.isEmpty()) {
             throw new ContactNotSentException("There has been an error with sending your contact form");
         }
 
-        return "Success! Your form has been sent!";
+        return contact;
     }
 
 }
